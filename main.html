@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="./icon/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Dㅇ - Main</title>
+  
+</head>
+<body class="main_body">
+    <script type="text/javascript" defer src="./js/main.js"></script>
+    <header>
+        <a href="index.html" id="main_logo" title="첫 페이지로">Dㅇ</a>
+        <ul class="nav">
+            <li><a href="#aboutMe" id="nav_aboutMe">About Me</a></li>
+            <li><a href="#gallery" id="nav_gallery">Gallery</a></li>
+            <li><a href="#roadmap" id="nav_roadmap">Roadmap</a></li>
+            <li><a href="login.html" id="logout" title="로그아웃" onclick="return checkLogout();">Logout</a></li>
+        </ul>
+        <button type="button" id="btn_manager" onclick="checkManager();"><img src="./icon/manager_icon.svg"></button>
+        <button type="button" id="btn_top" onclick="scrollToTop();">▲</button>
+        <script>
+        
+        </script>
+    </header>
+
+    <section class="main_container" id="first_page">
+        <div class="wrapper">
+            <div class="typing">
+                <p>반갑습니다, 저는 웹 개발자 오장훈입니다.</p>
+            </div>
+        </div>
+    </section>
+    <section id="aboutMe">
+        <div>
+            <img src="./images/profile.jpg" alt="" id="aboueMe_img">
+        </div>
+        <div class="aboutMe_text">
+            <h1>class Introduce {</h1>
+            <div class="aboutMe_content">
+                <p>이름 : 오장훈</p>
+                <p>성별 : 남</p>
+                <p>생일 : 1995. 02. 20</p>
+                <p>전공 : 컴퓨터 공학과</p>
+                <p>MBTI : ENFP</p>
+                <p>장점 : [끈기, 책임감]</p>
+                <p>단점 : [다소 게으름😅, 걱정이 많은 편]</p>
+            </div>
+            <h1>}</h1>
+            <div>
+                <img src="./images/mbti_enfp.png" id="mbti_img">
+            </div>
+        </div>
+    </section>
+    <section id="gallery">
+        <h1>MY PHOTO</h1>
+        <div class="gallery_bg">
+            <div class="slide_list">
+                <img src="./images/gallery_img1.jpg" id="photo1">
+                <img src="./images/gallery_img2.jpg" id="photo2">
+                <img src="./images/gallery_img3.jpg" id="photo3">
+                <img src="./images/gallery_img4.jpg" id="photo4">
+            </div>
+            
+        </div>
+    </section>
+    <section id="roadmap">
+        <div class="road1">
+            <h1>1</h1>
+            <p id="road1_text">학창시절 프로그래밍 수강 과목으로 C언어 / Java / Python / 머신러닝 
+            등을 수강하였지만, 그 당시엔 흥미가 없어 실력이 전혀 향상되지 않았다.</p>
+        </div>
+        <div class="road2">
+            <h1>2</h1>
+            <p id="road2_text">졸업후, Java를 독학으로 공부하며 C++ 수업을 수강하였다.</p>
+        </div>
+        <div class="road3">
+            <h1>3</h1>
+            <p id="road3_text">지금은 자바 웹 개발자 과정을 수강하고 있으며,
+            현재까지 Java / Oracle DB / JDBC / HTML / CSS / Javascript 를 수강 중이다.</p>
+        </div>
+        <div class="road4">
+            <h1>4</h1>
+            <p id="road4_text">공부를 해오며 백엔드 개발자가 적성에 맞다고 생각되어 자바스크립트 공부를 꾸준히 더 하고
+            서버 관련해서도 학습할 예정이다.</p>
+            </p>
+        </div>
+    </section>
+    <footer>
+        <div class="footer_content">
+            <li><a href="https://github.com/Ohjanghoon"><img src="./icon/github_icon.png"></a></li>
+            <li><a href=""><img src="./icon/youtube_icon.png"></a></li>
+            <li><a href="https://www.notion.so/eb94242b3c8f45478a22f3c63dd330d3"><img src="./icon/notion_icon.png"></a></li>
+        </div>
+        <p>Copyright©2022. Developer Ohjanghoon</p>
+    </footer>
+    <script type="text/javascript">
+    
+    
+    
+    </script>
+</body>
+</html>

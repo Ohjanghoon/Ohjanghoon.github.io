@@ -1,0 +1,148 @@
+@font-face {
+    font-family: 'KCC-eunyoung';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KCC-eunyoung-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+/* css 전체 요소 */
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    /* font: 60px 'GangwonEduPowerExtraBoldA'; */
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(../images/login_bg.jpg) no-repeat center;
+    background-size: cover;
+}
+/* header 설정 */
+header {
+    width: 1440px;
+    padding: 20px 100px;
+    /* background-color: blue; */
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: 0.6s;
+}
+header #main_logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    box-shadow: 10px 5px 20px 0px #fff;
+    
+    font: italic 3em KCC-eunyoung;
+    color: rgb(104, 135, 211);
+    
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    transition: 0.6s;
+}
+#main_logo:hover {
+    color: #fff;
+    text-shadow: 2px 2px 5px white;
+    /* font-weight: bold; */
+    box-shadow: 10px 5px 20px 0px rgb(104, 135, 211);
+}
+
+.login_form {
+    width: 500px;
+    height: 400px;
+    color: white;
+    background-color: rgba(135, 133, 133, 0.3);
+    position: relative;
+    border-radius: 15px;
+}
+.login_form h1{
+    text-align: center;
+    margin: 20px 0;
+}
+hr{
+    margin: 0 100px;
+    border: 1px solid #fff;
+    background-color: #fff;
+}
+.input_area{
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+.input_area:first-child{
+    margin-top: 40px;
+}
+.input_area input {
+    width: 92%;
+    margin: 0 20px;
+    padding: 20px 10px 5px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgb(104, 135, 211);
+    font-size: 20px; color: white;
+    outline: none;
+}
+.input_area input:valid {
+    background: transparent;
+}
+.input_area label {
+    position: absolute; left: 30px; top: 15px;         /* input 태그 위에 위치 */
+    font-size: 15px; color: rgba(255, 255, 255, 0.5);
+    transition: top .5s ease;     /* -3px의 위치로 올라가면서 트랜지션 효과 */
+    margin-top: 5px;   /* 위칸과 겹치기 않도록 */
+}   
+
+.input_area input:focus + label,
+.input_area input:valid + label{
+    top: -3px;
+    font-size: 10px; color: rgba(0, 157, 255);
+}
+
+.message_box {
+    font-size: 13px;
+    color: silver;
+    position: relative; left: 30px;
+}
+
+.btn_area {
+    margin-top: 35px;
+    position: relative;
+    text-align: center;
+}
+
+.btn_area button {
+    width: 460px; height: 50px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px; font-weight: bold; color: #fff;
+    
+    background-color: rgb(104, 135, 211);
+}
+
+.btn_area p {
+    margin-top: 10px;
+}
+.btn_area a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+}

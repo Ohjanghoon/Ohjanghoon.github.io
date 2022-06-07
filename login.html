@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="./icon/favicon-16x16.png">
+    <link rel="stylesheet" href="./css/login.css"></link>
+    
+    <title>Dㅇ - 로그인</title>
+</head>
+<body>
+    <script type="text/javascript" defer src="js/login.js"></script>
+
+    <header>
+        <a href="index.html" id="main_logo" title="첫 페이지로">Dㅇ</a>
+    </header>
+    <section class="login_form">
+        <h1>L O G I N</h1>
+        <hr>
+        <form action="main.html" name="loginFrm" method="post">
+            <div class="input_area">
+                <input type="text" name="userId" id="userId" autocomplete="off" required>
+                <label>아이디</label>
+                <br>
+                <span class="message_box" id="loginMsg"></span>   <!-- input 태그 밑에 유효성 검사 메세지 -->
+            </div>
+            <div class="input_area">
+                <input type="password" name="pwd" id="pwd" autocomplete="off" required>
+                <label>비밀번호</label>
+                <br>
+                <span class="message_box" id="pwdMsg"></span>
+            </div>
+            <div class="btn_area">
+                <button type="submit" id="btn_login" title="로그인하기">로그인</button>
+                <p>
+                    회원이 아니신가요? <a type="button" href="signup.html">회원가입</a>
+                </p>
+            </div>
+            <div class="">
+            </div>
+
+        </form>
+
+    </section>
+
+</body>
+</html>
