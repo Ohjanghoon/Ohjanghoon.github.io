@@ -1,13 +1,11 @@
 /**
  * 
- * 
  * 회원가입
- * 
+ * 1. 유효성 검사
+ * 2. 사용자가 입력 시도 후 올바른 형식으로 입력했는지 바로바로 체크 후 피드백 처리
+ * 3. 모든 입력값을 전부 필수사항으로 설정
  * 
 */
-
-//1. 유효성 검사
-//2. 사용자가 입력 시도 후 올바른 형식으로 입력했는지 바로바로 체크 후 피드백 처리
 
 //----------------------------------아이디----------------------------------------
 // 아이디 유효성 검사 (중복 검사 기능 추가)
@@ -251,8 +249,7 @@ const checkEmailAddr = () => {
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-
-//올바른 형식으로 입력했는지 바로 체크하기 위함 (네이버 회원가입 페이지 참조)
+//올바른 형식으로 입력했는지 바로 체크하고 피드백하기 위함 (네이버 회원가입 페이지 참조)
 const showMsg = (obj, msg) => {
     obj.innerHTML = msg;
 };
@@ -260,6 +257,8 @@ const showMsg = (obj, msg) => {
 //초기화 버튼 클릭시 사용자에게 응답을 받아 처리
 btn_reset.onclick = () => {
     const reset_ans = confirm("작성한 정보를 초기화하시겠습니까?");
+    
+    //초기화시 기존에 있던 입력값 관련 피드백 메세지 삭제 
     if(reset_ans){
         [...document.querySelectorAll(".message_box")].forEach((m) => {
             m.innerHTML = "";
@@ -303,7 +302,7 @@ document.memberFrm.onsubmit = () => {
 //사용자 입력값이 올바르지 않은데도 가입을 시도할 경우 출력 메세지
 const re_input = (msg, ele) => {
     alert(`${msg} 확인해주세요!😥`);
-    ele.focus();
+    ele.focus();       //잘못 입력된 input focus 처리
     return false;
 };
 
@@ -324,47 +323,49 @@ class Member {
 const saveJoinMember = () => {
     //사용자 입력값 처리
     const userId = checkId();
-    console.log(userId);
+    // console.log(userId);
     const pwd = checkPwd();
-    console.log(pwd);
+    // console.log(pwd);
     const userName = checkName();
-    console.log(userName);
+    // console.log(userName);
     const birth = document.getElementById("birth").value;
-    console.log(birth);
+    // console.log(birth);
     const gender = document.getElementById("gender").value;
-    console.log(gender);
+    // console.log(gender);
     const phone1 = document.getElementById("phone1").value;
-    console.log(phone1);
+    // console.log(phone1);
     const phone = `${phone1}${checkPhone()}`;
-    console.log(phone);
+    // console.log(phone);
     const email = `${checkEmailId()}@${checkEmailAddr()}`;
-    console.log(email);
+    // console.log(email);
 
     //member 객체 생성
     const member = new Member(userId, pwd, userName, birth, gender, phone, email);
-    console.log(member);
+    // console.log(member);
 
     //members 배열에 저장
     const members = JSON.parse(localStorage.getItem("members")) || [];
     members.push(member);
-    console.log(members);
+    // console.log(members);
 
     //json 객체로 변환
     const data = JSON.stringify(members);
-    console.log(data);
+    // console.log(data);
 
     //localstorage에 저장
     localStorage.setItem('members', data);
 
-    //초기화
+    //저장 완료되면 기존에 입력되어있던 값, 피드백 메세지 초기화
     document.memberFrm.reset();
     [...document.querySelectorAll(".message_box")].forEach((m) => {
             m.innerHTML = "";
     });
+    window.location.href = './login.html';
     alert('회원가입 성공!🎉');
     return true;
 };
 
+//확인하기 편하게 날짜 형식 변경
 const datetimeFormatter = (millis) => {
     const d = new Date(millis);
     const f = (n) => n < 10 ? '0' + n : n;
