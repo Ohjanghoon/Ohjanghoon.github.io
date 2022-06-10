@@ -54,12 +54,7 @@ window.addEventListener('scroll', () => {
     let road3 = document.querySelector(".road3");
     let road4 = document.querySelector(".road4");
 
-    // let road1_text = document.querySelector("#road1_text");
-    // let road2_text = document.querySelector("#road2_text");
-    // let road3_text = document.querySelector("#road3_text");
-    // let road4_text = document.querySelector("#road4_text");
     let value = window.scrollY;
-    // console.log("scrollY", value);
 
     if(value > 450){
         text.style.animation = "slide 2s ease-out forwards";

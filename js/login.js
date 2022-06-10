@@ -54,7 +54,8 @@ userId.onblur = () => {
 };
 
 //입력한 아이디와 비밀번호를 대조하여 로그인 성공처리
-const checkPwd = (inputId) => {
+const checkPwd = () => {
+    const inputId = checkId();
     const inputPwd = document.getElementById("pwd").value;
     // console.log(inputPwd);
 
@@ -79,41 +80,39 @@ const showMsg = (obj, msg) => {
 };
 
 document.loginFrm.onsubmit = () => {
+
     if(!checkId()){
         alert('아이디 확인해주세요!😥');
         userId.focus();
         return false;
     }
-    const loginId = checkId();
-
-    if(!checkPwd(loginId)){
+    if(!checkPwd()){
         showMsg(loginMsg, "아이디와 비밀번호를 확인해주세요.");
         alert('아이디와 비밀번호를 확인해주세요!😥');
         return false;
     }
 
+    //검사 모두 통과하면
     saveLoginMember(loginId);
-    alert('로그인 성공!🎉');
     return true;
 };
 
-const saveLoginMember = (loginId) => {
+const saveLoginMember = () => {
+    const loginId = checkId();
     let login_member = null;
-    console.log(1);
     members().forEach((member) => {
         const {userId, userName} = member;
         if(loginId === userId){
             login_member = new Member_login_info(userId, "*암호화*", userName);
         }
     });
-    console.log(2);
     
     const data = JSON.stringify(login_member);
-    console.log(3);
     localStorage.setItem('login_member', data);
-    console.log(4);
 
-
+    window.location.href="./main.html";
+    alert('로그인 성공!🎉');
+    return true;
 };
 
 const datetimeFormatter = (millis) => {

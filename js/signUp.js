@@ -16,24 +16,24 @@ const checkId = () => {
     const idRegexp3 = /\d+/g;
 
     if(tempId === ""){
-        showMsg(idMsg, "필수 정보입니다.");
+        showMsg(idMsg, "❗필수 정보입니다.");
         return false;
     }
     if(!idRegexp1.test(tempId)){
-        showMsg(idMsg, "영소문자로 시작해주세요.");
+        showMsg(idMsg, "❗영소문자로 시작해주세요.");
         return false;
     }
     if(!idRegexp2.test(tempId)){
-        showMsg(idMsg, "4~12자리 영소문자/숫자만 사용해주세요.");
+        showMsg(idMsg, "❗4~12자리 영소문자/숫자만 사용해주세요.");
         return false;
     }
     if(!idRegexp3.test(tempId)){
-        showMsg(idMsg, "숫자를 하나이상 반드시 포함해주세요.");
+        showMsg(idMsg, "❗숫자를 하나이상 반드시 포함해주세요.");
         return false;
     }
     console.log("what", existedId(tempId));
     if(!existedId(tempId)) {
-        showMsg(idMsg, "이미 가입된 아이디입니다.");
+        showMsg(idMsg, "❗이미 가입된 아이디입니다.");
         return false;
     } else{
         showMsg(idMsg, "✔사용 가능");
@@ -73,23 +73,23 @@ const checkPwd = () => {
     const pwdRegExp4 = /[!@#$%&]+/;
 
     if(tempPwd === ""){
-        showMsg(pwdMsg, "필수 정보입니다.");
+        showMsg(pwdMsg, "❗필수 정보입니다.");
         return false;
     }
     if(!pwdRegExp1.test(tempPwd)){
-        showMsg(pwdMsg, "8~12자리 숫자/영대소문자/특수문자(!, @, #, $, %, &)를 사용하세요.")
+        showMsg(pwdMsg, "❗8~12자리 숫자/영대소문자/특수문자(!, @, #, $, %, &)를 사용하세요.")
         return false;
     }
     if(!pwdRegExp2.test(tempPwd)){
-        showMsg(pwdMsg, "숫자를 하나이상 반드시 포함해주세요.");
+        showMsg(pwdMsg, "❗숫자를 하나이상 반드시 포함해주세요.");
         return false;
     }
     if(!pwdRegExp3.test(tempPwd)){
-        showMsg(pwdMsg, "영대소문자를 하나이상 반드시 포함해주세요.");
+        showMsg(pwdMsg, "❗영대소문자를 하나이상 반드시 포함해주세요.");
         return false;
     }
     if(!pwdRegExp4.test(tempPwd)){
-        showMsg(pwdMsg, "특수문자(!, @, #, $, %, &)를 하나이상 반드시 포함해주세요.");
+        showMsg(pwdMsg, "❗특수문자(!, @, #, $, %, &)를 하나이상 반드시 포함해주세요.");
         return false;
     }
     showMsg(pwdMsg, "✔사용 가능");
@@ -111,11 +111,11 @@ const checkPwdCheck = () => {
     const tempPwdCheck = document.querySelector("#pwdCheck").value;
 
     if(tempPwdCheck === ""){
-        showMsg(pwdCheckMsg, "필수 정보입니다.");
+        showMsg(pwdCheckMsg, "❗필수 정보입니다.");
         return false;
     }
     if(pwd.value !== pwdCheck.value){
-        showMsg(pwdCheckMsg, "비밀번호가 일치하지 않습니다.");
+        showMsg(pwdCheckMsg, "❗비밀번호가 일치하지 않습니다.");
         return false;
     }
 
@@ -145,11 +145,11 @@ const checkName = () => {
     const nameRegexp = /^[가-힣]{2,}$/;
 
     if(tempUserName === ""){
-        showMsg(nameMsg, "필수 정보입니다.");
+        showMsg(nameMsg, "❗필수 정보입니다.");
         return false;
     }
     if(!nameRegexp.test(tempUserName)){
-        showMsg(nameMsg, "이름을 다시 확인해주세요.");
+        showMsg(nameMsg, "❗이름을 다시 확인해주세요.");
         return false;
     }
     showMsg(nameMsg, "✔");
@@ -184,7 +184,7 @@ const checkPhone = () => {
     const phoneRegexp = /\d{7,8}/;
     
     if(tempPhone2 === ""){
-        showMsg(phoneMsg, "필수 정보입니다.");
+        showMsg(phoneMsg, "❗필수 정보입니다.");
         return false;
     }
     if(!phoneRegexp.test(tempPhone2)){
@@ -206,11 +206,11 @@ const checkEmailId = () => {
     const emailIdRegexp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*$/;
     
     if(tempEmailId === ""){
-        showMsg(emailMsg, "필수 정보입니다.");
+        showMsg(emailMsg, "❗필수 정보입니다.");
         return false;
     }
     if(!emailIdRegexp.test(tempEmailId)){
-        showMsg(emailMsg, "이메일 주소를 다시 확인해주세요.");
+        showMsg(emailMsg, "❗이메일 주소를 다시 확인해주세요.");
         return false;
     }
 
@@ -236,11 +236,11 @@ const checkEmailAddr = () => {
     const emailAddrRegexp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
     
     if(emailAddr.value === ""){
-        showMsg(emailMsg, "이메일 주소를 다시 확인해주세요.");
+        showMsg(emailMsg, "❗이메일 주소를 다시 확인해주세요.");
         return false;
     }
     if(!emailAddrRegexp.test(tempEmailAddr)){
-        showMsg(emailMsg, "이메일 주소를 다시 확인해주세요.");
+        showMsg(emailMsg, "❗이메일 주소를 다시 확인해주세요.");
         return false;
     }
     showMsg(emailMsg, "✔");
@@ -296,12 +296,11 @@ document.memberFrm.onsubmit = () => {
     //검사를 모두 통과하면 localStorage에 저장
     saveJoinMember();
     return true;
-    // location.href = 'login.html';
 };
 
 //사용자 입력값이 올바르지 않은데도 가입을 시도할 경우 출력 메세지
 const re_input = (msg, ele) => {
-    alert(`${msg} 확인해주세요!😥`);
+    alert(`${msg} 입력을 다시 확인해주세요!😥`);
     ele.focus();       //잘못 입력된 input focus 처리
     return false;
 };
@@ -360,6 +359,7 @@ const saveJoinMember = () => {
     [...document.querySelectorAll(".message_box")].forEach((m) => {
             m.innerHTML = "";
     });
+    //모두 완료되면 login페이지로 이동
     window.location.href = './login.html';
     alert('회원가입 성공!🎉');
     return true;
